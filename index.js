@@ -8,6 +8,7 @@ const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderoute = require("./routes/order");
 const stripeRoute = require("./routes/stripe");
+const cors = require("cors");
 
 dotenv.config();
 moongose
@@ -15,6 +16,7 @@ moongose
   .then(() => console.log("DBConnection Successfull"))
   .catch((err) => console.log(err));
 app.use(express.json());
+app.use(cors);
 app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
