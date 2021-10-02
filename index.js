@@ -7,6 +7,7 @@ const authRoute = require("./routes/auth");
 const productRoute = require("./routes/product");
 const cartRoute = require("./routes/cart");
 const orderoute = require("./routes/order");
+const stripeRoute = require("./routes/stripe");
 
 dotenv.config();
 moongose
@@ -19,6 +20,8 @@ app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderoute);
 app.use("/api/auth", authRoute);
+app.use("/api/checkout", stripeRoute);
+
 app.listen(process.env.PORT || 5000, () => {
   console.log("Backend server running");
 });
